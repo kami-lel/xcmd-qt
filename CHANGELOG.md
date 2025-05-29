@@ -1,2 +1,2 @@
-v0.1-alpha: create initial project structure
+v1.0-alpha: create initial project structure
 
