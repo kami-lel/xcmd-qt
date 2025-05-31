@@ -1,11 +1,21 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
     QQmlApplicationEngine engine;
+
+    // detect whether debug build
+#ifdef NDEBUG
+    const bool isDebugBuild = false;
+#else
+    const bool isDebugBuild = true;
+#endif
+
+    engine.rootContext()->setContextProperty("isDebugBuild", isDebugBuild);
+
     const QUrl url(QStringLiteral("qrc:/xcmd-qt/Main.qml"));
     QObject::connect(
         &engine,

@@ -18,6 +18,8 @@ qt_add_qml_module(appxcmd-qt
     VERSION 1.0
     QML_FILES
         Main.qml
+    RESOURCES
+        resources.qrc
 )
 
 set_target_properties(appxcmd-qt PROPERTIES
@@ -37,3 +39,4 @@ install(TARGETS appxcmd-qt
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
