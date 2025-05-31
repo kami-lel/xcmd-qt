@@ -14,6 +14,7 @@ ApplicationWindow {
     background: Rectangle {
         color: "transparent"
 
+        // BUG not shown in build
         Image {
             anchors.fill: parent
             source: "qrc:/assets/images/minecraft_missing_texture.png"
