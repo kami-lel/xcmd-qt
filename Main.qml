@@ -2,17 +2,17 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 
-Window {
+ApplicationWindow {
 
     flags: Qt.Window | Qt.FramelessWindowHint
-    width: 640
-    height: 480
+    width: 1920
+    height: 1080
     visible: true
     color: "transparent"
     title: qsTr("Hello World")
 
     // show checkerboard for window size in debug build
-    Rectangle {
+    background: Rectangle {
         anchors.fill: parent
         color: "transparent"
         visible: isDebugBuild
@@ -22,7 +22,7 @@ Window {
             // hack use proper resource management
             source: "assets/images/minecraft_missing_texture.png"
             fillMode: Image.Tile
-            opacity: 0.5
+            opacity: 0.2
         }
     }
 
@@ -33,4 +33,5 @@ Window {
         color: "blue"
         font.pointSize: 20
     }
+
 }
