@@ -14,12 +14,14 @@ ApplicationWindow {
     background: Rectangle {
         color: "transparent"
 
-        // BUG not shown in build
+        // shown a checkerboard for window size in debug build
         Image {
             anchors.fill: parent
-            source: "qrc:/assets/images/minecraft_missing_texture.png"
+            // hack use proper resource management
+            source: "assets/images/minecraft_missing_texture.png"
             fillMode: Image.Tile
             visible: isDebugBuild
+            opacity: 0.5
         }
     }
 

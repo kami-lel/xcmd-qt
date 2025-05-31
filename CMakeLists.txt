@@ -19,7 +19,8 @@ qt_add_qml_module(appxcmd-qt
     QML_FILES
         Main.qml
     RESOURCES
-        resources.qrc
+        # hack use proper resource management
+        assets/images/minecraft_missing_texture.png
 )
 
 set_target_properties(appxcmd-qt PROPERTIES
