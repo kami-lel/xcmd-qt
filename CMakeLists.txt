@@ -10,14 +10,14 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup()
 
 qt_add_executable(appxcmd-qt
-    main.cpp
+    src/main.cpp
 )
 
 qt_add_qml_module(appxcmd-qt
     URI xcmd-qt
     VERSION 1.0
     QML_FILES
-        Main.qml
+        src/Main.qml
     RESOURCES
         # hack use proper resource management
         assets/images/minecraft_missing_texture.png

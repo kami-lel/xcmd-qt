@@ -20,7 +20,7 @@ ApplicationWindow {
         Image {
             anchors.fill: parent
             // hack use proper resource management
-            source: "assets/images/minecraft_missing_texture.png"
+            source: "../assets/images/minecraft_missing_texture.png"
             fillMode: Image.Tile
             opacity: 0.2
         }
@@ -35,3 +35,5 @@ ApplicationWindow {
     }
 
 }
+
+
