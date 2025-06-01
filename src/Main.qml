@@ -26,14 +26,13 @@ ApplicationWindow {
         }
     }
 
-    // HACK filler
-    Text {
+    TextPart {
         anchors.centerIn: parent
-        text: "Hello World"
-        color: "blue"
-        font.pointSize: 20
+    }
+
+    HexagonPart {
+        anchors.centerIn: parent
     }
 
 }
-
 
