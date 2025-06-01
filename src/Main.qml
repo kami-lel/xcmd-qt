@@ -5,7 +5,7 @@ import QtQuick.Window 2.15
 ApplicationWindow {
     id: mainWindow
 
-    flags: isDebugBuild ? (Qt.Window) : (Qt.FramelessWindowHint | Qt.Window)
+    flags: Qt.FramelessWindowHint | Qt.Window
 
     visible: true
 
