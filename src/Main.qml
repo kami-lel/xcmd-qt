@@ -3,12 +3,20 @@ import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 
 ApplicationWindow {
+    id: mainWindow
 
-    flags: Qt.Window | Qt.FramelessWindowHint
-    width: 1920
-    height: 1080
+    flags: isDebugBuild ? (Qt.Window) : (Qt.FramelessWindowHint | Qt.Window)
+
     visible: true
-    color: "transparent"
+
+    // hack maybe use fullscreen
+    width: 1280
+    height: 720
+
+    // radius (center to vertext) of a hexgaon when enlarges/focused
+    property int enlargedHexagonRadius: 500;
+
+
     title: qsTr("Hello World")
 
     // show checkerboard for window size in debug build
@@ -22,17 +30,16 @@ ApplicationWindow {
             // hack use proper resource management
             source: "../assets/images/minecraft_missing_texture.png"
             fillMode: Image.Tile
-            opacity: 0.2
+            opacity: 1.0
         }
     }
 
     TextPart {
         anchors.centerIn: parent
+        enlargedHexagonRadius: mainWindow.enlargedHexagonRadius
     }
 
     HexagonPart {
         anchors.centerIn: parent
     }
-
 }
-

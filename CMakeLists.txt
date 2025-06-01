@@ -21,7 +21,6 @@ qt_add_qml_module(appxcmd-qt
         src/TextPart.qml
         src/HexagonPart.qml
     RESOURCES
-        # hack use proper resource management
         assets/images/minecraft_missing_texture.png
 )
 
