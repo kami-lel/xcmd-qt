@@ -53,4 +53,9 @@ ApplicationWindow {
         // kick off the animation once at startup
         mainWindow.hexagonScaling = 0
     }
+
+    // TODO
+    SearchboxContainer {
+
+    }
 }

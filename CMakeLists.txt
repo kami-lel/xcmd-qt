@@ -21,6 +21,7 @@ qt_add_qml_module(appxcmd-qt
     QML_FILES
         src/Main.qml
         src/HexagonShape.qml
+        src/SearchboxContainer.qml
 
     RESOURCES
       resources.qrc
