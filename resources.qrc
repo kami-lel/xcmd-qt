@@ -1,5 +1,6 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="/">
+        <file>assets/images/minecraft_missing_texture.png</file>
     </qresource>
 </RCC>

@@ -27,8 +27,8 @@ ApplicationWindow {
 
         Image {
             anchors.fill: parent
-            // hack use proper resource management
-            source: "../assets/images/minecraft_missing_texture.png"
+            // BUG not loading
+            source: "qrc:/res/assets/images/minecraft_missing_texture.png"
             fillMode: Image.Tile
             opacity: 1.0
         }

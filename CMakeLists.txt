@@ -23,8 +23,6 @@ qt_add_qml_module(appxcmd-qt
         src/Main.qml
         src/TextPart.qml
         src/HexagonPart.qml
-    RESOURCES
-        assets/images/minecraft_missing_texture.png
 )
 
 set_target_properties(appxcmd-qt PROPERTIES
