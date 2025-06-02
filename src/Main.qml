@@ -28,18 +28,23 @@ ApplicationWindow {
         Image {
             anchors.fill: parent
             // BUG not loading
-            source: "qrc:/res/assets/images/minecraft_missing_texture.png"
+            source: "qrc:/assets/images/minecraft_missing_texture.png"
             fillMode: Image.Tile
             opacity: 1.0
         }
     }
 
     TextPart {
+        visible: false   // HACK
         anchors.centerIn: parent
         enlargedHexagonRadius: mainWindow.enlargedHexagonRadius
     }
 
     HexagonPart {
+        visible: false   // HACK
         anchors.centerIn: parent
+    }
+
+    HexagonShape{
     }
 }

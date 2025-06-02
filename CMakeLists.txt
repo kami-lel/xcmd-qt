@@ -12,7 +12,6 @@ qt_standard_project_setup()
 
 
 qt_add_executable(appxcmd-qt
-    resources.qrc
     src/main.cpp
 )
 
@@ -23,6 +22,10 @@ qt_add_qml_module(appxcmd-qt
         src/Main.qml
         src/TextPart.qml
         src/HexagonPart.qml
+        src/HexagonShape.qml
+
+    RESOURCES
+      resources.qrc
 )
 
 set_target_properties(appxcmd-qt PROPERTIES
