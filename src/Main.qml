@@ -26,9 +26,14 @@ ApplicationWindow {
         opacity: 0.2
     }
 
+
+    // hack animation for demo scaling
+    // animate whenever hexagonScaling is changed
     HexagonShape {
         maxRadius: mainWindow.hexagonMaxRadius
         scaling: mainWindow.hexagonScaling
+        anchors.horizontalCenterOffset: mainWindow.hexagonMaxRadius * 4
+        anchors.verticalCenterOffset: mainWindow.hexagonMaxRadius * 4
     }
 
     HexagonShape {
@@ -37,8 +42,6 @@ ApplicationWindow {
         anchors.horizontalCenterOffset: mainWindow.hexagonMaxRadius * 2
     }
 
-    // hack animation for demo scaling
-    // animate whenever hexagonScaling is changed
     Behavior on hexagonScaling {
         NumberAnimation {
             from: 0.0
@@ -56,6 +59,7 @@ ApplicationWindow {
 
     // TODO
     SearchboxContainer {
-
+        maxRadius: mainWindow.hexagonMaxRadius
+        shapeShift: mainWindow.hexagonScaling
     }
 }

@@ -10,50 +10,34 @@ Shape {
     readonly property int xOffset: sqrt3 / 2 * radius
     readonly property int yOffset: radius / 2
 
+    readonly property var hexagonVertices: [
+        Qt.point( 0,        -radius  ),  // top
+        Qt.point( xOffset,  -yOffset ),  // top-right
+        Qt.point( xOffset,   yOffset ),  // bottom-right
+        Qt.point( 0,         radius  ),  // bottom
+        Qt.point(-xOffset,   yOffset ),  // bottom-left
+        Qt.point(-xOffset,  -yOffset )   // top-left
+    ]
+
+    property var vertices: hexagonVertices
+
     width: maxRadius * 2;
     height: maxRadius * 2;
     anchors.centerIn: parent
 
     ShapePath {
-
         strokeColor: "black"
         strokeWidth: 4
         fillColor: "grey"
         capStyle: ShapePath.RoundCap
 
-        // top point
-        startX: 0
-        startY: hexagonShape.radius
+        startX: vertices[0].x;  startY: vertices[0].y
 
-        PathLine {
-        // top right point
-            x: hexagonShape.xOffset
-            y: hexagonShape.yOffset
-        }
-        PathLine {
-        // bottom right point
-            x: hexagonShape.xOffset
-            y: -hexagonShape.yOffset
-        }
-        PathLine {
-        // bottom point
-            x: 0
-            y: -hexagonShape.radius
-        }
-        PathLine {
-        // bottom left point
-            x: -hexagonShape.xOffset
-            y: -hexagonShape.yOffset
-        }
-        PathLine {
-        // bottom top point
-            x: -hexagonShape.xOffset
-            y: hexagonShape.yOffset
-        }
-        PathLine {
-        // back to top point
-            x: 0
-            y: hexagonShape.radius
-        }
+        PathLine { x: vertices[1].x; y: vertices[1].y }
+        PathLine { x: vertices[2].x; y: vertices[2].y }
+        PathLine { x: vertices[3].x; y: vertices[3].y }
+        PathLine { x: vertices[4].x; y: vertices[4].y }
+        PathLine { x: vertices[5].x; y: vertices[5].y }
+        PathLine { x: vertices[0].x; y: vertices[0].y }
     }
 }
