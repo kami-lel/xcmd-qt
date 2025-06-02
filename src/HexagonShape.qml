@@ -1,28 +1,62 @@
 import QtQuick
 import QtQuick.Shapes
 
-Shape { // HACK filler
+Shape {
+    id: hexagonShape
 
-    width: 200
-    height: 150
+    property int maxRadius: -1
+    property real scaling: 1.0
+    readonly property int radius: maxRadius * scaling
+    readonly property int xOffset: sqrt3 / 2 * radius
+    readonly property int yOffset: radius / 2
+
+    // HACK fix
+    width: maxRadius - 200
+    height: maxRadius - 250
+    // width: maxRadius * 2;
+    // height: maxRadius * 2;
     anchors.centerIn: parent
+
     ShapePath {
+
+        strokeColor: "black"
         strokeWidth: 4
-        strokeColor: "red"
-        fillGradient: LinearGradient {
-            x1: 20; y1: 20
-            x2: 180; y2: 130
-            GradientStop { position: 0; color: "blue" }
-            GradientStop { position: 0.2; color: "green" }
-            GradientStop { position: 0.4; color: "red" }
-            GradientStop { position: 0.6; color: "yellow" }
-            GradientStop { position: 1; color: "cyan" }
+        fillColor: "grey"
+        capStyle: ShapePath.RoundCap
+
+        // top point
+        startX: 0
+        startY: hexagonShape.radius
+
+        PathLine {
+        // top right point
+            x: hexagonShape.xOffset
+            y: hexagonShape.yOffset
         }
-        strokeStyle: ShapePath.DashLine
-        dashPattern: [ 1, 4 ]
-        startX: 20; startY: 20
-        PathLine { x: 180; y: 130 }
-        PathLine { x: 20; y: 130 }
-        PathLine { x: 20; y: 20 }
+        PathLine {
+        // bottom right point
+            x: hexagonShape.xOffset
+            y: -hexagonShape.yOffset
+        }
+        PathLine {
+        // bottom point
+            x: 0
+            y: -hexagonShape.radius
+        }
+        PathLine {
+        // bottom left point
+            x: -hexagonShape.xOffset
+            y: -hexagonShape.yOffset
+        }
+        PathLine {
+        // bottom top point
+            x: -hexagonShape.xOffset
+            y: hexagonShape.yOffset
+        }
+        PathLine {
+        // back to top point
+            x: 0
+            y: hexagonShape.radius
+        }
     }
 }

@@ -5,8 +5,11 @@ import QtQuick.Window 2.15
 ApplicationWindow {
     id: mainWindow
 
-    // radius (center to vertext) of a hexgaon when enlarges/focused
-    property int enlargedHexagonRadius: 500;
+    readonly property real sqrt3: 1.7320508075688772
+
+    // radius (center to vertex) of a hexagon when enlarges/focused
+    property int hexagonMaxRadius: 50
+    property real hexagonScaling: 1.0
 
     flags: Qt.FramelessWindowHint | Qt.Window
     width: 1280
@@ -24,5 +27,8 @@ ApplicationWindow {
     }
 
     HexagonShape{
+        maxRadius: mainWindow.hexagonMaxRadius;
     }
+
+
 }
