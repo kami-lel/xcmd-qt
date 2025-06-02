@@ -5,33 +5,22 @@ import QtQuick.Window 2.15
 ApplicationWindow {
     id: mainWindow
 
-    flags: Qt.FramelessWindowHint | Qt.Window
-
-    visible: true
-
-    // hack maybe use fullscreen
-    width: 1280
-    height: 720
-
     // radius (center to vertext) of a hexgaon when enlarges/focused
     property int enlargedHexagonRadius: 500;
 
-
+    flags: Qt.FramelessWindowHint | Qt.Window
+    width: 1280
+    height: 720
+    color: "transparent"
+    visible: true
     title: qsTr("Hello World")
 
-    // show checkerboard for window size in debug build
+    // when debug, render a purple to show windows range
     background: Rectangle {
         anchors.fill: parent
-        color: "transparent"
+        color: "fuchsia"
         visible: isDebugBuild
-
-        Image {
-            anchors.fill: parent
-            // BUG not loading
-            source: "qrc:/assets/images/minecraft_missing_texture.png"
-            fillMode: Image.Tile
-            opacity: 1.0
-        }
+        opacity: 0.2
     }
 
     TextPart {
