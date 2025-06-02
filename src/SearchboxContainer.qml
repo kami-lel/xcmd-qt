@@ -25,5 +25,21 @@ HexagonShape {
         Qt.point( -halfRectWidth,   -halfRectHeight )   // top-left
     ]
 
-    vertices: rectVertices
+    function interpolatePoint(p0, p1, t) {
+        return Qt.point(
+                p0.x + (p1.x - p0.x) * t,
+                p0.y + (p1.y - p0.y) * t
+        );
+    }
+
+    vertices: [
+        interpolatePoint(hexagonVertices[0], rectVertices[0], shapeShift),
+        interpolatePoint(hexagonVertices[1], rectVertices[1], shapeShift),
+        interpolatePoint(hexagonVertices[2], rectVertices[2], shapeShift),
+        interpolatePoint(hexagonVertices[3], rectVertices[3], shapeShift),
+        interpolatePoint(hexagonVertices[4], rectVertices[4], shapeShift),
+        interpolatePoint(hexagonVertices[5], rectVertices[5], shapeShift)
+    ]
+
+
 }
