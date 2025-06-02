@@ -26,9 +26,31 @@ ApplicationWindow {
         opacity: 0.2
     }
 
-    HexagonShape{
-        maxRadius: mainWindow.hexagonMaxRadius;
+    HexagonShape {
+        maxRadius: mainWindow.hexagonMaxRadius
+        scaling: mainWindow.hexagonScaling
     }
 
+    HexagonShape {
+        maxRadius: mainWindow.hexagonMaxRadius
+        scaling: mainWindow.hexagonScaling
+        anchors.horizontalCenterOffset: mainWindow.hexagonMaxRadius * 2
+    }
 
+    // hack animation for demo scaling
+    // animate whenever hexagonScaling is changed
+    Behavior on hexagonScaling {
+        NumberAnimation {
+            from: 0.0
+            to:   1.0
+            duration: 5000  // 5 seconds
+            loops: Animation.Infinite
+            easing.type: Easing.Linear
+        }
+    }
+
+    Component.onCompleted: {
+        // kick off the animation once at startup
+        mainWindow.hexagonScaling = 0
+    }
 }
