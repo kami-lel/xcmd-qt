@@ -10,11 +10,8 @@ Shape {
     readonly property int xOffset: sqrt3 / 2 * radius
     readonly property int yOffset: radius / 2
 
-    // HACK fix
-    width: maxRadius - 200
-    height: maxRadius - 250
-    // width: maxRadius * 2;
-    // height: maxRadius * 2;
+    width: maxRadius * 2;
+    height: maxRadius * 2;
     anchors.centerIn: parent
 
     ShapePath {
