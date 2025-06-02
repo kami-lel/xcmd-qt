@@ -26,7 +26,6 @@ ApplicationWindow {
         opacity: 0.2
     }
 
-
     // hack animation for demo scaling
     // animate whenever hexagonScaling is changed
     HexagonShape {
@@ -42,24 +41,26 @@ ApplicationWindow {
         anchors.horizontalCenterOffset: mainWindow.hexagonMaxRadius * 2
     }
 
+    // TODO
+    SearchboxContainer {
+        maxRadius: mainWindow.hexagonMaxRadius
+        shapeShift: mainWindow.hexagonScaling
+    }
+
     Behavior on hexagonScaling {
         NumberAnimation {
             from: 0.0
-            to:   1.0
-            duration: 5000  // 5 seconds
+            to: 1.0
+            duration: 5000    // 5 seconds
             loops: Animation.Infinite
             easing.type: Easing.Linear
         }
     }
 
     Component.onCompleted: {
-        // kick off the animation once at startup
+        // kick off the ping-pong animation at startup
         mainWindow.hexagonScaling = 0
     }
 
-    // TODO
-    SearchboxContainer {
-        maxRadius: mainWindow.hexagonMaxRadius
-        shapeShift: mainWindow.hexagonScaling
-    }
 }
+

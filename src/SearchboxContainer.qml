@@ -41,5 +41,4 @@ HexagonShape {
         interpolatePoint(hexagonVertices[5], rectVertices[5], shapeShift)
     ]
 
-
 }
