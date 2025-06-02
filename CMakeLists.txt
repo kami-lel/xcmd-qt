@@ -20,8 +20,6 @@ qt_add_qml_module(appxcmd-qt
     VERSION 1.0
     QML_FILES
         src/Main.qml
-        src/TextPart.qml
-        src/HexagonPart.qml
         src/HexagonShape.qml
 
     RESOURCES

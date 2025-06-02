@@ -23,17 +23,6 @@ ApplicationWindow {
         opacity: 0.2
     }
 
-    TextPart {
-        visible: false   // HACK
-        anchors.centerIn: parent
-        enlargedHexagonRadius: mainWindow.enlargedHexagonRadius
-    }
-
-    HexagonPart {
-        visible: false   // HACK
-        anchors.centerIn: parent
-    }
-
     HexagonShape{
     }
 }
