@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("isDebugBuild", isDebugBuild);
 
-    const QUrl url(QStringLiteral("qrc:/xcmd-qt/src/Main.qml"));
+    const QUrl url(QStringLiteral("qrc:/qt/qml/xcmd-qt/src/Main.qml"));
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

@@ -5,9 +5,11 @@ project(xcmd-qt VERSION 0.1 LANGUAGES CXX)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
+qt_policy(SET QTP0001 NEW)
+qt_policy(SET QTP0004 NEW)
+
 qt_standard_project_setup()
 
-# FIXME use new 0001 and 0004 policy
 
 qt_add_executable(appxcmd-qt
     resources.qrc
