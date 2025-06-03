@@ -1,21 +1,19 @@
-import QtQuick 2.15
-import QtQuick.Shapes
-
 HexagonShape {
     id: searchboxContainer
 
-    property real shapeShift: 0.0  // 0=hexagon, 1=rectangle
+    // property to switch between shape types: 0 = hexagon, 1 = rectangle
+    property real shapeShift: 0.0
 
-    // for when in rectangular mode
+    // rectangle mode properties
     property int rectWidth: 300
     property int rectHeight: 120
-
     readonly property int halfRectWidth: rectWidth / 2
-    readonly property int halfRectHeight: rectHeight /2
+    readonly property int halfRectHeight: rectHeight / 2
 
     width: rectWidth
     height: rectHeight
 
+    // vertices for rectangle shape
     readonly property var rectVertices: [
         Qt.point(  0,               -halfRectHeight ),  // top
         Qt.point(  halfRectWidth,   -halfRectHeight ),  // top-right
@@ -25,13 +23,15 @@ HexagonShape {
         Qt.point( -halfRectWidth,   -halfRectHeight )   // top-left
     ]
 
-    function interpolatePoint(p0, p1, t) {
+    // linear interpolation between two points
+    function interpolatePoint(start_point, end_point, progress) {
         return Qt.point(
-                p0.x + (p1.x - p0.x) * t,
-                p0.y + (p1.y - p0.y) * t
+                start_point.x + (end_point.x - start_point.x) * progress,
+                start_point.y + (end_point.y - start_point.y) * progress
         );
     }
 
+    // interpolated vertices for shape transition
     vertices: [
         interpolatePoint(hexagonVertices[0], rectVertices[0], shapeShift),
         interpolatePoint(hexagonVertices[1], rectVertices[1], shapeShift),
@@ -40,5 +40,4 @@ HexagonShape {
         interpolatePoint(hexagonVertices[4], rectVertices[4], shapeShift),
         interpolatePoint(hexagonVertices[5], rectVertices[5], shapeShift)
     ]
-
 }

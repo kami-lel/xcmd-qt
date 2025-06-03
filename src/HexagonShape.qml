@@ -21,8 +21,8 @@ Shape {
 
     property var vertices: hexagonVertices
 
-    width: maxRadius * 2;
-    height: maxRadius * 2;
+    width: maxRadius * 2
+    height: maxRadius * 2
     anchors.centerIn: parent
 
     ShapePath {
@@ -31,13 +31,14 @@ Shape {
         fillColor: "grey"
         capStyle: ShapePath.RoundCap
 
-        startX: vertices[0].x;  startY: vertices[0].y
+        startX: hexagonShape.vertices[0].x
+        startY: hexagonShape.vertices[0].y
 
-        PathLine { x: vertices[1].x; y: vertices[1].y }
-        PathLine { x: vertices[2].x; y: vertices[2].y }
-        PathLine { x: vertices[3].x; y: vertices[3].y }
-        PathLine { x: vertices[4].x; y: vertices[4].y }
-        PathLine { x: vertices[5].x; y: vertices[5].y }
-        PathLine { x: vertices[0].x; y: vertices[0].y }
+        PathLine { x: hexagonShape.vertices[1].x; y: hexagonShape.vertices[1].y }
+        PathLine { x: hexagonShape.vertices[2].x; y: hexagonShape.vertices[2].y }
+        PathLine { x: hexagonShape.vertices[3].x; y: hexagonShape.vertices[3].y }
+        PathLine { x: hexagonShape.vertices[4].x; y: hexagonShape.vertices[4].y }
+        PathLine { x: hexagonShape.vertices[5].x; y: hexagonShape.vertices[5].y }
+        PathLine { x: hexagonShape.vertices[0].x; y: hexagonShape.vertices[0].y }
     }
 }

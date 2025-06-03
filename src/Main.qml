@@ -18,7 +18,7 @@ ApplicationWindow {
     visible: true
     title: qsTr("Hello World")
 
-    // when debug, render a purple to show windows range
+    // render a purple rectangle when in debug mode to show window range
     background: Rectangle {
         anchors.fill: parent
         color: "fuchsia"
@@ -26,8 +26,7 @@ ApplicationWindow {
         opacity: 0.2
     }
 
-    // hack animation for demo scaling
-    // animate whenever hexagonScaling is changed
+    // hack animation for demo scaling, animate whenever hexagonScaling changes
     HexagonShape {
         maxRadius: mainWindow.hexagonMaxRadius
         scaling: mainWindow.hexagonScaling
@@ -41,26 +40,26 @@ ApplicationWindow {
         anchors.horizontalCenterOffset: mainWindow.hexagonMaxRadius * 2
     }
 
-    // TODO
+    // Search box container with shape shift
     SearchboxContainer {
         maxRadius: mainWindow.hexagonMaxRadius
         shapeShift: mainWindow.hexagonScaling
     }
 
+    // animate hexagonScaling with a continuous linear number animation
     Behavior on hexagonScaling {
         NumberAnimation {
             from: 0.0
             to: 1.0
-            duration: 5000    // 5 seconds
+            duration: 5000  // 5 seconds
             loops: Animation.Infinite
             easing.type: Easing.Linear
         }
     }
 
     Component.onCompleted: {
-        // kick off the ping-pong animation at startup
+        // start the ping-pong scaling animation
         mainWindow.hexagonScaling = 0
     }
-
 }
 
