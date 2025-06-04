@@ -4,9 +4,11 @@
 #include <QJsonDocument>
 
 class ConfigManager : public QJsonDocument {
- public:
-  ConfigManager();
-  ~ConfigManager();
+    public:
+    ConfigManager();
+
+    private:
+    void copyDefaultConfigFileTo(const QString &configPath);
 };
 
 #endif  // CONFIG_MANAGER_H
