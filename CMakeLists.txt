@@ -13,6 +13,7 @@ qt_standard_project_setup()
 
 qt_add_executable(appxcmd-qt
     src/main.cpp
+    src/config_manager.cpp
 )
 
 qt_add_qml_module(appxcmd-qt
