@@ -5,11 +5,12 @@ HexagonShape {
     property real shapeShift: 0.0
 
     // rectangle mode properties
-    property int rectWidth: 300
-    property int rectHeight: 120
+    property int rectWidth: 500
+    property int rectHeight: 80
     readonly property int halfRectWidth: rectWidth / 2
     readonly property int halfRectHeight: rectHeight / 2
 
+    // bug width & height is not dynamically changed
     width: rectWidth
     height: rectHeight
 

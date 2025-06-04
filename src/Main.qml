@@ -51,7 +51,7 @@ ApplicationWindow {
         NumberAnimation {
             from: 0.0
             to: 1.0
-            duration: 5000  // 5 seconds
+            duration: 3000  // 5 seconds
             loops: Animation.Infinite
             easing.type: Easing.Linear
         }
